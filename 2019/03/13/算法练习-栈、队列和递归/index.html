@@ -96,24 +96,24 @@
 
 
 
-  <meta name="description" content="我发现很多事情，如果不坚持做，就会重复做简单的。写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。">
+  <meta name="description" content="关于栈、队列和递归的几个必知必会的代码实现栈 用数组实现一个顺序栈 用链表实现一个链式栈 编程模拟实现一个浏览器的前进、后退功能  队列 用数组实现一个顺序队列 用链表实现一个链式队列 实现一个循环队列  递归 编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2) 编程实现求阶乘 n! 编程实现一组数据集合的全排列  对应的 LeetCode 练习题栈 Valid Parentheses">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Try Again">
-<meta property="og:url" content="http://yoursite.com/2019/02/14/Try-Again/index.html">
+<meta property="og:title" content="算法练习-栈、队列和递归">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/算法练习-栈、队列和递归/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="我发现很多事情，如果不坚持做，就会重复做简单的。写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。">
+<meta property="og:description" content="关于栈、队列和递归的几个必知必会的代码实现栈 用数组实现一个顺序栈 用链表实现一个链式栈 编程模拟实现一个浏览器的前进、后退功能  队列 用数组实现一个顺序队列 用链表实现一个链式队列 实现一个循环队列  递归 编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2) 编程实现求阶乘 n! 编程实现一组数据集合的全排列  对应的 LeetCode 练习题栈 Valid Parentheses">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-14T06:20:12.802Z">
+<meta property="og:updated_time" content="2019-03-13T08:51:00.250Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Try Again">
-<meta name="twitter:description" content="我发现很多事情，如果不坚持做，就会重复做简单的。写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。">
+<meta name="twitter:title" content="算法练习-栈、队列和递归">
+<meta name="twitter:description" content="关于栈、队列和递归的几个必知必会的代码实现栈 用数组实现一个顺序栈 用链表实现一个链式栈 编程模拟实现一个浏览器的前进、后退功能  队列 用数组实现一个顺序队列 用链表实现一个链式队列 实现一个循环队列  递归 编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2) 编程实现求阶乘 n! 编程实现一组数据集合的全排列  对应的 LeetCode 练习题栈 Valid Parentheses">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/14/Try-Again/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/算法练习-栈、队列和递归/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>Try Again | Hexo</title>
+  <title>算法练习-栈、队列和递归 | Hexo</title>
   
 
 
@@ -288,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/Try-Again/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/算法练习-栈、队列和递归/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reiser Xu">
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Try Again
+          <h1 class="post-title" itemprop="name headline">算法练习-栈、队列和递归
 
               
             
@@ -331,7 +331,7 @@
                 
               
 
-              <time title="Created: 2019-02-14 14:17:45 / Modified: 14:20:12" itemprop="dateCreated datePublished" datetime="2019-02-14T14:17:45+08:00">2019-02-14</time>
+              <time title="Created: 2019-03-13 16:36:35 / Modified: 16:51:00" itemprop="dateCreated datePublished" datetime="2019-03-13T16:36:35+08:00">2019-03-13</time>
             
 
             
@@ -370,7 +370,45 @@
       
 
       
-        <p>我发现很多事情，如果不坚持做，就会重复做简单的。<br>写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。</p>
+        <h3 id="关于栈、队列和递归的几个必知必会的代码实现"><a href="#关于栈、队列和递归的几个必知必会的代码实现" class="headerlink" title="关于栈、队列和递归的几个必知必会的代码实现"></a>关于栈、队列和递归的几个必知必会的代码实现</h3><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><ul>
+<li>用数组实现一个顺序栈</li>
+<li>用链表实现一个链式栈</li>
+<li>编程模拟实现一个浏览器的前进、后退功能</li>
+</ul>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><ul>
+<li>用数组实现一个顺序队列</li>
+<li>用链表实现一个链式队列</li>
+<li>实现一个循环队列</li>
+</ul>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><ul>
+<li>编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)</li>
+<li>编程实现求阶乘 n!</li>
+<li>编程实现一组数据集合的全排列</li>
+</ul>
+<h3 id="对应的-LeetCode-练习题"><a href="#对应的-LeetCode-练习题" class="headerlink" title="对应的 LeetCode 练习题"></a>对应的 LeetCode 练习题</h3><h3 id="栈-1"><a href="#栈-1" class="headerlink" title="栈"></a>栈</h3><ul>
+<li><p>Valid Parentheses（有效的括号）</p>
+<p>  题目：<a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-parentheses/</a></p>
+</li>
+<li><p>Longest Valid Parentheses（最长有效的括号）</p>
+<p>  题目：<a href="https://leetcode.com/problems/longest-valid-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-valid-parentheses/</a></p>
+</li>
+<li><p>Evaluate Reverse Polish Notatio（逆波兰表达式求值）</p>
+<p>  题目：<a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">https://leetcode.com/problems/evaluate-reverse-polish-notation/</a></p>
+</li>
+</ul>
+<h3 id="队列-1"><a href="#队列-1" class="headerlink" title="队列"></a>队列</h3><ul>
+<li><p>Design Circular Deque（设计一个双端队列）</p>
+<p>  题目：<a href="https://leetcode.com/problems/design-circular-deque/" target="_blank" rel="noopener">https://leetcode.com/problems/design-circular-deque/</a></p>
+</li>
+<li><p>Sliding Window Maximum（滑动窗口最大值）</p>
+<p>  题目：<a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">https://leetcode.com/problems/sliding-window-maximum/</a></p>
+</li>
+</ul>
+<h3 id="递归-1"><a href="#递归-1" class="headerlink" title="递归"></a>递归</h3><ul>
+<li><p>Climbing Stairs（爬楼梯）</p>
+<p>  题目：<a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="noopener">https://leetcode.com/problems/climbing-stairs/</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -401,14 +439,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/12/算法练习-数组和链表/" rel="next" title="算法练习-数组和链表">
+                <i class="fa fa-chevron-left"></i> 算法练习-数组和链表
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/18/算法与数据结构学习清单/" rel="prev" title="数据结构与算法学习清单">
-                数据结构与算法学习清单 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/22/正则表达式/" rel="prev" title="正则表达式">
+                正则表达式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -454,8 +496,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -512,6 +563,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于栈、队列和递归的几个必知必会的代码实现"><span class="nav-number">1.</span> <span class="nav-text">关于栈、队列和递归的几个必知必会的代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">3.</span> <span class="nav-text">队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">4.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对应的-LeetCode-练习题"><span class="nav-number">5.</span> <span class="nav-text">对应的 LeetCode 练习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈-1"><span class="nav-number">6.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列-1"><span class="nav-number">7.</span> <span class="nav-text">队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归-1"><span class="nav-number">8.</span> <span class="nav-text">递归</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

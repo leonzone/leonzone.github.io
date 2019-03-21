@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Regular Expression 通常译为正则表达式，简称 regrx,其实称之为规则表达式更贴切   我们可以用书写特定的规则，用来在文本中捕获与规则一致的字符串，而后对其进行操作  1234import restr=&apos;begins&apos;pttn=r&apos;beg[iau]ns?&apos;print(re.findall(pttn,str)) 优先级   排列 原子与操作符优先级 从高到低     1 转义符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/正则表达式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Regular Expression 通常译为正则表达式，简称 regrx,其实称之为规则表达式更贴切   我们可以用书写特定的规则，用来在文本中捕获与规则一致的字符串，而后对其进行操作  1234import restr=&apos;begins&apos;pttn=r&apos;beg[iau]ns?&apos;print(re.findall(pttn,str)) 优先级   排列 原子与操作符优先级 从高到低     1 转义符">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T17:10:43.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="Regular Expression 通常译为正则表达式，简称 regrx,其实称之为规则表达式更贴切   我们可以用书写特定的规则，用来在文本中捕获与规则一致的字符串，而后对其进行操作  1234import restr=&apos;begins&apos;pttn=r&apos;beg[iau]ns?&apos;print(re.findall(pttn,str)) 优先级   排列 原子与操作符优先级 从高到低     1 转义符">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/22/正则表达式/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>正则表达式 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/正则表达式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Reiser Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-22 01:07:54 / Modified: 01:10:43" itemprop="dateCreated datePublished" datetime="2019-03-22T01:07:54+08:00">2019-03-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>Regular Expression</code> 通常译为<strong>正则表达式</strong>，简称 <code>regrx</code>,其实称之为<strong>规则表达式</strong>更贴切 </p>
+<blockquote>
+<p>我们可以用书写特定的规则，用来在文本中捕获与规则一致的字符串，而后对其进行操作</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">str=<span class="string">'begins'</span></span><br><span class="line">pttn=<span class="string">r'beg[iau]ns?'</span></span><br><span class="line">print(re.findall(pttn,str))</span><br></pre></td></tr></table></figure>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><table>
+<thead>
+<tr>
+<th>排列</th>
+<th>原子与操作符优先级</th>
+<th>从高到低</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>转义符号 (Escaping Symbol)</td>
+<td><code>\</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>分组、捕获 (Grouping or Capturing)</td>
+<td><code>(...)</code> <code>(?:...)</code> <code>(?=...)</code> <code>(?!...)</code> <code>(?&lt;=...)</code> <code>(?&lt;!...)</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>数量 (Quantifiers)</td>
+<td><code>a*</code> <code>a+</code> <code>a?</code> <code>a{n, m}</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>序列与定位（Sequence and Anchor</td>
+<td><code>abc</code> <code>^</code> <code>$</code> <code>\b</code> <code>\B</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>或（Alternation）</td>
+<td>`a\</td>
+<td>b\</td>
+<td>c`</td>
+</tr>
+<tr>
+<td>6</td>
+<td>原子 (Atoms)</td>
+<td><code>a</code> <code>[^abc]</code> <code>\t</code> <code>\r</code> <code>\n</code> <code>\d</code> <code>\D</code> <code>\s</code> <code>\S</code> <code>\w</code> <code>\W</code> <code>.</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="原子和操作符"><a href="#原子和操作符" class="headerlink" title="原子和操作符"></a>原子和操作符</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本义字符</td>
+<td><code>a 到 z</code></td>
+<td><code>A 到 Z</code></td>
+<td><code>0 到 9</code></td>
+<td><code>_</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>集合原子</td>
+<td><code>[abc]</code></td>
+<td><code>[a-z]</code></td>
+<td><code>[^abc]</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>类别原子</td>
+<td><code>\d</code></td>
+<td><code>\D</code></td>
+<td><code>\w</code></td>
+<td><code>\W</code></td>
+<td><code>\s</code></td>
+<td><code>\S</code></td>
+<td><code>.</code></td>
+</tr>
+<tr>
+<td>边界原子</td>
+<td><code>^</code></td>
+<td><code>$</code></td>
+<td><code>\b</code></td>
+<td><code>\B</code></td>
+</tr>
+<tr>
+<td>组合原子</td>
+<td><code>()</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数量操作符</td>
+<td><code>+</code></td>
+<td><code>*</code></td>
+<td><code>?</code></td>
+<td><code>{n}</code></td>
+<td><code>{n,}</code></td>
+<td><code>{n,m}</code></td>
+</tr>
+<tr>
+<td>或操作符</td>
+<td>`a\</td>
+<td>b\</td>
+<td>c`</td>
+</tr>
+<tr>
+<td>匹配并捕获</td>
+<td>`(</td>
+<td>)`</td>
+</tr>
+<tr>
+<td>非捕获匹配</td>
+<td><code>(?:...)</code></td>
+<td><code>(?=...)</code></td>
+<td><code>(?!...)</code></td>
+<td><code>(?&lt;=...)</code></td>
+<td><code>(?&lt;!...)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h2><h3 id="1-类别原子"><a href="#1-类别原子" class="headerlink" title="1. 类别原子"></a>1. 类别原子</h3><p>类别原子，是指那些能够代表“一类字符”的原子，它们都得使用转义符号再加上另外一个符号表达，包括：</p>
+<p><code>\d</code> 任意数字；等价于 <code>[0-9]</code></p>
+<p><code>\D</code> 任意非数字；等价于 <code>[^0-9]</code></p>
+<p><code>\w</code> 任意本义字符；等价于 <code>[a-zA-z0-9_]</code></p>
+<p><code>\W</code> 任意非本义字符；等价于 <code>[^a-zA-z0-9_]</code></p>
+<p><code>\s</code> 任意空白；相当于 <code>[ \f\n\r\t\v]</code> （注意，方括号内第一个字符是空格符号） </p>
+<p><code>\S</code> 任意非空白；相当于 <code>[^ \f\n\r\t\v]</code> （注意，紧随 <code>^</code> 之后的是一个空格符号） </p>
+<p><code>.</code> 除 <code>\r</code> <code>\n</code> 之外的任意字符；相当于<code>[^\r\n]</code></p>
+<p>类别原子挺好记忆的，如果你知道各个字母是哪个词的首字母的话：</p>
+<blockquote>
+<ul>
+<li><code>d</code> 是 digits</li>
+<li><code>w</code> 是 word characters</li>
+<li><code>s</code> 是 spaces</li>
+</ul>
+</blockquote>
+<p>另外，在空白的集合<code>[ \f\n\r\t\v]</code>中：<code>f</code> 是分页符；<code>\n</code> <code>\r</code> 是换行符； <code>\t</code> 是制表符；<code>\v</code> 是纵向制表符（很少用到）。各种关于空白的转义符也同样挺好记忆的，如果你知道各个字母是那个词的首字母的话：</p>
+<blockquote>
+<ul>
+<li><code>f</code> 是 flip</li>
+<li><code>n</code> 是 new line</li>
+<li><code>r</code> 是 return</li>
+<li><code>t</code> 是 tab</li>
+<li><code>v</code> 是 vertical tab</li>
+</ul>
+</blockquote>
+<h3 id="2-边界原子"><a href="#2-边界原子" class="headerlink" title="2. 边界原子"></a>2. 边界原子</h3><p>我们可以用边界原子指定边界。也可以称作“定位操作符”。</p>
+<p><code>^</code> 匹配被搜索字符串的开始位置；</p>
+<p><code>$</code> 匹配被搜索字符串的结束位置；</p>
+<p><code>\b</code> 匹配单词的边界；<a href="https://regexper.com#er%5Cb" target="_blank" rel="noopener"><code>er\b</code></a>，能匹配 <code>wonderer</code> 中的 <code>er</code>，却不能匹配 <code>error</code> 中的 <code>er</code>；</p>
+<p><code>\B</code> 匹配非单词边界；<a href="https://regexper.com#er%5CB" target="_blank" rel="noopener"><code>er\B</code></a>，能匹配 <code>error</code> 中的 <code>er</code>，却不能匹配 <code>wonderer</code> 中的 <code>er</code>。</p>
+<p><strong>3.匹配并捕获</strong></p>
+<p>捕获（Capture），使用的是圆括号<code>()</code>。使用圆括号得到的匹配的值被暂存成一个带有索引的列表，第一个是 <code>$1</code>，第二个是 <code>$2</code>…… 以此类推。随后，我们可以在替换的过程中使用 <code>$1</code> <code>$2</code> 中所保存的值。</p>
+<p><strong>注意</strong>：在 Python 语言中调用 <code>re</code> 模块之后，在 <code>re.sub()</code> 中调用被匹配的值，用的索引方法是 <code>\1</code>、<code>\2</code>…… 以此类推。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">str = <span class="string">'The white dog wears a black hat.'</span></span><br><span class="line">pttn = <span class="string">r'The (white|black) dog wears a (white|black) hat.'</span></span><br><span class="line">re.findall(pttn, str)</span><br><span class="line"></span><br><span class="line">repl = <span class="string">r'The \2 dog wears a \1 hat.'</span></span><br><span class="line">re.sub(pttn, repl, str)</span><br><span class="line"></span><br><span class="line">repl = <span class="string">r'The \1 dog wears a \1 hat.'</span></span><br><span class="line">re.sub(pttn, repl, str)</span><br></pre></td></tr></table></figure>
+<h3 id="4-非捕获匹配"><a href="#4-非捕获匹配" class="headerlink" title="4.非捕获匹配"></a>4.非捕获匹配</h3><p>有时，你并不想捕获圆括号中的内容，在那个地方你使用括号的目的只是分组，而非捕获，那么，你就在圆括号内最开头加上 <code>?:</code> —— <code>(?:...)</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">str = <span class="string">'The white dog wears a black hat.'</span></span><br><span class="line">pttn = <span class="string">r'The (?:white|black) dog wears a (white|black) hat.'</span></span><br><span class="line">re.findall(pttn, str)                   <span class="comment"># 只捕获了一处，也就是说只有一个值将来可以被引用</span></span><br><span class="line"></span><br><span class="line">repl = <span class="string">r'The \1 dog wears a \1 hat.'</span>    <span class="comment"># 不过，可替换的位置却有两个（即便非捕获匹配，也有可替换位置）</span></span><br><span class="line">re.sub(pttn, repl, str)</span><br></pre></td></tr></table></figure>
+<p>非捕获匹配，还有若干个操作符：</p>
+<p> <code>(?=pattern)</code>   </p>
+<blockquote>
+<p>正向肯定预查（look ahead positive assert），在任何匹配规则的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，<a href="https://regexper.com#%60Windows(?=95%7C98%7CNT%7C2000" target="_blank" rel="noopener"><code>Windows(?=95|98|NT|2000)</code></a>%60)<br>能匹配<code>Windows2000</code>中的<code>Windows</code>，但不能匹配<code>Windows3.1</code>中的<code>Windows</code>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。 </p>
+</blockquote>
+<p><code>(?!pattern)</code></p>
+<blockquote>
+<p>正向否定预查（negative assert），在任何不匹配规则的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如<a href="https://regexper.com#Windows(?=95%7C98%7CNT%7C2000" target="_blank" rel="noopener"><code>Windows(?=95|98|NT|2000)</code></a>)<br>能匹配<code>Windows3.1</code>中的<code>Windows</code>，但不能匹配<code>Windows2000</code>中的<code>Windows</code>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</p>
+</blockquote>
+<p><code>(?&lt;=pattern)</code></p>
+<blockquote>
+<p>反向（look behind）肯定预查，与正向肯定预查类似，只是方向相反。例如，<a href="https://regexper.com#(?%3C=95%7C98%7CNT%7C2000" target="_blank" rel="noopener"><code>(?&lt;=95|98|NT|2000)Windows</code></a>Windows)<br>能匹配<code>2000Windows</code>中的<code>Windows</code>，但不能匹配<code>3.1Windows</code>中的<code>Windows</code>。</p>
+</blockquote>
+<p> <code>(?&lt;!pattern)</code></p>
+<blockquote>
+<p>反向否定预查，与正向否定预查类似，只是方向相反。例如<code>(?&lt;!95|98|NT|2000)Windows</code><br>能匹配<code>3.1Windows</code>中的<code>Windows</code>，但不能匹配<code>2000Windows</code>中的<code>Windows</code>。 </p>
+</blockquote>
+<h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><p><a href="https://docs.python.org/3/library/re.html" target="_blank" rel="noopener">Python 正则</a><br><a href="https://regex101.com/" target="_blank" rel="noopener">在线正则</a><br><a href="https://regexper.com/" target="_blank" rel="noopener">正则可视化</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/13/算法练习-栈、队列和递归/" rel="next" title="算法练习-栈、队列和递归">
+                <i class="fa fa-chevron-left"></i> 算法练习-栈、队列和递归
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Reiser Xu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#优先级"><span class="nav-number">1.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原子和操作符"><span class="nav-number">2.</span> <span class="nav-text">原子和操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细说明"><span class="nav-number">3.</span> <span class="nav-text">详细说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-类别原子"><span class="nav-number">3.1.</span> <span class="nav-text">1. 类别原子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-边界原子"><span class="nav-number">3.2.</span> <span class="nav-text">2. 边界原子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-非捕获匹配"><span class="nav-number">3.3.</span> <span class="nav-text">4.非捕获匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站"><span class="nav-number">4.</span> <span class="nav-text">网站</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Reiser Xu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

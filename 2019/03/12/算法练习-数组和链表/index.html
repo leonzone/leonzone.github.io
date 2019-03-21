@@ -96,24 +96,24 @@
 
 
 
-  <meta name="description" content="我发现很多事情，如果不坚持做，就会重复做简单的。写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。">
+  <meta name="description" content="关于数组和链表的几个必知必会的代码实现数组 实现一个支持动态扩容的数组 实现一个大小固定的有序数组，支持动态增删改操作 实现两个有序数组合并为一个有序数组  链表 实现单链表、循环链表、双向链表，支持增删操作 实现单链表反转 实现两个有序的链表合并为一个有序链表 实现求链表的中间结点  对应的 LeetCode 练习题数组 Three Sum（求三数之和）   题目：https://leetcod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Try Again">
-<meta property="og:url" content="http://yoursite.com/2019/02/14/Try-Again/index.html">
+<meta property="og:title" content="算法练习-数组和链表">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/算法练习-数组和链表/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="我发现很多事情，如果不坚持做，就会重复做简单的。写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。">
+<meta property="og:description" content="关于数组和链表的几个必知必会的代码实现数组 实现一个支持动态扩容的数组 实现一个大小固定的有序数组，支持动态增删改操作 实现两个有序数组合并为一个有序数组  链表 实现单链表、循环链表、双向链表，支持增删操作 实现单链表反转 实现两个有序的链表合并为一个有序链表 实现求链表的中间结点  对应的 LeetCode 练习题数组 Three Sum（求三数之和）   题目：https://leetcod">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-14T06:20:12.802Z">
+<meta property="og:updated_time" content="2019-03-13T08:51:07.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Try Again">
-<meta name="twitter:description" content="我发现很多事情，如果不坚持做，就会重复做简单的。写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。">
+<meta name="twitter:title" content="算法练习-数组和链表">
+<meta name="twitter:description" content="关于数组和链表的几个必知必会的代码实现数组 实现一个支持动态扩容的数组 实现一个大小固定的有序数组，支持动态增删改操作 实现两个有序数组合并为一个有序数组  链表 实现单链表、循环链表、双向链表，支持增删操作 实现单链表反转 实现两个有序的链表合并为一个有序链表 实现求链表的中间结点  对应的 LeetCode 练习题数组 Three Sum（求三数之和）   题目：https://leetcod">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/14/Try-Again/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/12/算法练习-数组和链表/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>Try Again | Hexo</title>
+  <title>算法练习-数组和链表 | Hexo</title>
   
 
 
@@ -288,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/Try-Again/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/算法练习-数组和链表/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reiser Xu">
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Try Again
+          <h1 class="post-title" itemprop="name headline">算法练习-数组和链表
 
               
             
@@ -331,12 +331,24 @@
                 
               
 
-              <time title="Created: 2019-02-14 14:17:45 / Modified: 14:20:12" itemprop="dateCreated datePublished" datetime="2019-02-14T14:17:45+08:00">2019-02-14</time>
+              <time title="Created: 2019-03-12 16:31:17" itemprop="dateCreated datePublished" datetime="2019-03-12T16:31:17+08:00">2019-03-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-13 16:51:07" itemprop="dateModified" datetime="2019-03-13T16:51:07+08:00">2019-03-13</time>
               
             
           </span>
@@ -370,7 +382,41 @@
       
 
       
-        <p>我发现很多事情，如果不坚持做，就会重复做简单的。<br>写博客就是这样，两年前我就搭建了 hexo ，但没有坚持更新，现在又从头再来。再来就再来吧，我慢慢向上爬。</p>
+        <h3 id="关于数组和链表的几个必知必会的代码实现"><a href="#关于数组和链表的几个必知必会的代码实现" class="headerlink" title="关于数组和链表的几个必知必会的代码实现"></a>关于数组和链表的几个必知必会的代码实现</h3><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<li>实现一个支持动态扩容的数组</li>
+<li>实现一个大小固定的有序数组，支持动态增删改操作</li>
+<li>实现两个有序数组合并为一个有序数组</li>
+</ul>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><ul>
+<li>实现单链表、循环链表、双向链表，支持增删操作</li>
+<li>实现单链表反转</li>
+<li>实现两个有序的链表合并为一个有序链表</li>
+<li>实现求链表的中间结点</li>
+</ul>
+<h3 id="对应的-LeetCode-练习题"><a href="#对应的-LeetCode-练习题" class="headerlink" title="对应的 LeetCode 练习题"></a>对应的 LeetCode 练习题</h3><h3 id="数组-1"><a href="#数组-1" class="headerlink" title="数组"></a>数组</h3><ul>
+<li><p>Three Sum（求三数之和）</p>
+<p>  题目：<a href="https://leetcode.com/problems/3sum/" target="_blank" rel="noopener">https://leetcode.com/problems/3sum/</a></p>
+  <!-- 解法：[https://github.com/leonzone/leetcode/tree/master/note/15](https://github.com/leonzone/leetcode/tree/master/note/15)-->
+</li>
+<li><p>Majority Element（求众数）</p>
+<p>  题目：<a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="noopener">https://leetcode.com/problems/majority-element/</a></p>
+ <!--  解法：[https://github.com/leonzone/leetcode/tree/master/note/169](https://github.com/leonzone/leetcode/tree/master/note/169)-->
+</li>
+<li><p>Missing Positive（求缺失的第一个正数）</p>
+<p>  题目：<a href="https://leetcode.com/problems/first-missing-positive/" target="_blank" rel="noopener">https://leetcode.com/problems/first-missing-positive/</a></p>
+<p>   解法：<a href="https://github.com/leonzone/leetcode/tree/master/note/041" target="_blank" rel="noopener">https://github.com/leonzone/leetcode/tree/master/note/041</a></p>
+</li>
+</ul>
+<h3 id="链表-1"><a href="#链表-1" class="headerlink" title="链表"></a>链表</h3><ul>
+<li><p>Linked List Cycle I（环形链表）</p>
+<p>  题目：<a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener">https://leetcode.com/problems/linked-list-cycle/</a></p>
+<p>  解法：<a href="https://github.com/leonzone/leetcode/tree/master/note/141" target="_blank" rel="noopener">https://github.com/leonzone/leetcode/tree/master/note/141</a></p>
+</li>
+<li><p>Merge k Sorted Lists（合并 k 个排序链表）</p>
+<p>  题目：<a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">https://leetcode.com/problems/merge-k-sorted-lists/</a></p>
+<p>  解法：<a href="https://github.com/leonzone/leetcode/tree/master/note/023" target="_blank" rel="noopener">https://github.com/leonzone/leetcode/tree/master/note/023</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -401,14 +447,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/12/最短路径规划-回溯、Dijkstra、A-三种算法实现/" rel="next" title="最短路径规划-回溯、Dijkstra、A* 三种算法实现">
+                <i class="fa fa-chevron-left"></i> 最短路径规划-回溯、Dijkstra、A* 三种算法实现
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/18/算法与数据结构学习清单/" rel="prev" title="数据结构与算法学习清单">
-                数据结构与算法学习清单 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/13/算法练习-栈、队列和递归/" rel="prev" title="算法练习-栈、队列和递归">
+                算法练习-栈、队列和递归 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -454,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -512,6 +571,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于数组和链表的几个必知必会的代码实现"><span class="nav-number">1.</span> <span class="nav-text">关于数组和链表的几个必知必会的代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-number">3.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对应的-LeetCode-练习题"><span class="nav-number">4.</span> <span class="nav-text">对应的 LeetCode 练习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组-1"><span class="nav-number">5.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表-1"><span class="nav-number">6.</span> <span class="nav-text">链表</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

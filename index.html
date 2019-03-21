@@ -285,6 +285,708 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/正则表达式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Reiser Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/22/正则表达式/" class="post-title-link" itemprop="url">正则表达式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-22 01:07:54 / Modified: 01:10:43" itemprop="dateCreated datePublished" datetime="2019-03-22T01:07:54+08:00">2019-03-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>Regular Expression</code> 通常译为<strong>正则表达式</strong>，简称 <code>regrx</code>,其实称之为<strong>规则表达式</strong>更贴切 </p>
+<blockquote>
+<p>我们可以用书写特定的规则，用来在文本中捕获与规则一致的字符串，而后对其进行操作</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">str=<span class="string">'begins'</span></span><br><span class="line">pttn=<span class="string">r'beg[iau]ns?'</span></span><br><span class="line">print(re.findall(pttn,str))</span><br></pre></td></tr></table></figure>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><table>
+<thead>
+<tr>
+<th>排列</th>
+<th>原子与操作符优先级</th>
+<th>从高到低</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>转义符号 (Escaping Symbol)</td>
+<td><code>\</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>分组、捕获 (Grouping or Capturing)</td>
+<td><code>(...)</code> <code>(?:...)</code> <code>(?=...)</code> <code>(?!...)</code> <code>(?&lt;=...)</code> <code>(?&lt;!...)</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>数量 (Quantifiers)</td>
+<td><code>a*</code> <code>a+</code> <code>a?</code> <code>a{n, m}</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>序列与定位（Sequence and Anchor</td>
+<td><code>abc</code> <code>^</code> <code>$</code> <code>\b</code> <code>\B</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>或（Alternation）</td>
+<td>`a\</td>
+<td>b\</td>
+<td>c`</td>
+</tr>
+<tr>
+<td>6</td>
+<td>原子 (Atoms)</td>
+<td><code>a</code> <code>[^abc]</code> <code>\t</code> <code>\r</code> <code>\n</code> <code>\d</code> <code>\D</code> <code>\s</code> <code>\S</code> <code>\w</code> <code>\W</code> <code>.</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="原子和操作符"><a href="#原子和操作符" class="headerlink" title="原子和操作符"></a>原子和操作符</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本义字符</td>
+<td><code>a 到 z</code></td>
+<td><code>A 到 Z</code></td>
+<td><code>0 到 9</code></td>
+<td><code>_</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>集合原子</td>
+<td><code>[abc]</code></td>
+<td><code>[a-z]</code></td>
+<td><code>[^abc]</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>类别原子</td>
+<td><code>\d</code></td>
+<td><code>\D</code></td>
+<td><code>\w</code></td>
+<td><code>\W</code></td>
+<td><code>\s</code></td>
+<td><code>\S</code></td>
+<td><code>.</code></td>
+</tr>
+<tr>
+<td>边界原子</td>
+<td><code>^</code></td>
+<td><code>$</code></td>
+<td><code>\b</code></td>
+<td><code>\B</code></td>
+</tr>
+<tr>
+<td>组合原子</td>
+<td><code>()</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数量操作符</td>
+<td><code>+</code></td>
+<td><code>*</code></td>
+<td><code>?</code></td>
+<td><code>{n}</code></td>
+<td><code>{n,}</code></td>
+<td><code>{n,m}</code></td>
+</tr>
+<tr>
+<td>或操作符</td>
+<td>`a\</td>
+<td>b\</td>
+<td>c`</td>
+</tr>
+<tr>
+<td>匹配并捕获</td>
+<td>`(</td>
+<td>)`</td>
+</tr>
+<tr>
+<td>非捕获匹配</td>
+<td><code>(?:...)</code></td>
+<td><code>(?=...)</code></td>
+<td><code>(?!...)</code></td>
+<td><code>(?&lt;=...)</code></td>
+<td><code>(?&lt;!...)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h2><h3 id="1-类别原子"><a href="#1-类别原子" class="headerlink" title="1. 类别原子"></a>1. 类别原子</h3><p>类别原子，是指那些能够代表“一类字符”的原子，它们都得使用转义符号再加上另外一个符号表达，包括：</p>
+<p><code>\d</code> 任意数字；等价于 <code>[0-9]</code></p>
+<p><code>\D</code> 任意非数字；等价于 <code>[^0-9]</code></p>
+<p><code>\w</code> 任意本义字符；等价于 <code>[a-zA-z0-9_]</code></p>
+<p><code>\W</code> 任意非本义字符；等价于 <code>[^a-zA-z0-9_]</code></p>
+<p><code>\s</code> 任意空白；相当于 <code>[ \f\n\r\t\v]</code> （注意，方括号内第一个字符是空格符号） </p>
+<p><code>\S</code> 任意非空白；相当于 <code>[^ \f\n\r\t\v]</code> （注意，紧随 <code>^</code> 之后的是一个空格符号） </p>
+<p><code>.</code> 除 <code>\r</code> <code>\n</code> 之外的任意字符；相当于<code>[^\r\n]</code></p>
+<p>类别原子挺好记忆的，如果你知道各个字母是哪个词的首字母的话：</p>
+<blockquote>
+<ul>
+<li><code>d</code> 是 digits</li>
+<li><code>w</code> 是 word characters</li>
+<li><code>s</code> 是 spaces</li>
+</ul>
+</blockquote>
+<p>另外，在空白的集合<code>[ \f\n\r\t\v]</code>中：<code>f</code> 是分页符；<code>\n</code> <code>\r</code> 是换行符； <code>\t</code> 是制表符；<code>\v</code> 是纵向制表符（很少用到）。各种关于空白的转义符也同样挺好记忆的，如果你知道各个字母是那个词的首字母的话：</p>
+<blockquote>
+<ul>
+<li><code>f</code> 是 flip</li>
+<li><code>n</code> 是 new line</li>
+<li><code>r</code> 是 return</li>
+<li><code>t</code> 是 tab</li>
+<li><code>v</code> 是 vertical tab</li>
+</ul>
+</blockquote>
+<h3 id="2-边界原子"><a href="#2-边界原子" class="headerlink" title="2. 边界原子"></a>2. 边界原子</h3><p>我们可以用边界原子指定边界。也可以称作“定位操作符”。</p>
+<p><code>^</code> 匹配被搜索字符串的开始位置；</p>
+<p><code>$</code> 匹配被搜索字符串的结束位置；</p>
+<p><code>\b</code> 匹配单词的边界；<a href="https://regexper.com#er%5Cb" target="_blank" rel="noopener"><code>er\b</code></a>，能匹配 <code>wonderer</code> 中的 <code>er</code>，却不能匹配 <code>error</code> 中的 <code>er</code>；</p>
+<p><code>\B</code> 匹配非单词边界；<a href="https://regexper.com#er%5CB" target="_blank" rel="noopener"><code>er\B</code></a>，能匹配 <code>error</code> 中的 <code>er</code>，却不能匹配 <code>wonderer</code> 中的 <code>er</code>。</p>
+<p><strong>3.匹配并捕获</strong></p>
+<p>捕获（Capture），使用的是圆括号<code>()</code>。使用圆括号得到的匹配的值被暂存成一个带有索引的列表，第一个是 <code>$1</code>，第二个是 <code>$2</code>…… 以此类推。随后，我们可以在替换的过程中使用 <code>$1</code> <code>$2</code> 中所保存的值。</p>
+<p><strong>注意</strong>：在 Python 语言中调用 <code>re</code> 模块之后，在 <code>re.sub()</code> 中调用被匹配的值，用的索引方法是 <code>\1</code>、<code>\2</code>…… 以此类推。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">str = <span class="string">'The white dog wears a black hat.'</span></span><br><span class="line">pttn = <span class="string">r'The (white|black) dog wears a (white|black) hat.'</span></span><br><span class="line">re.findall(pttn, str)</span><br><span class="line"></span><br><span class="line">repl = <span class="string">r'The \2 dog wears a \1 hat.'</span></span><br><span class="line">re.sub(pttn, repl, str)</span><br><span class="line"></span><br><span class="line">repl = <span class="string">r'The \1 dog wears a \1 hat.'</span></span><br><span class="line">re.sub(pttn, repl, str)</span><br></pre></td></tr></table></figure>
+<h3 id="4-非捕获匹配"><a href="#4-非捕获匹配" class="headerlink" title="4.非捕获匹配"></a>4.非捕获匹配</h3><p>有时，你并不想捕获圆括号中的内容，在那个地方你使用括号的目的只是分组，而非捕获，那么，你就在圆括号内最开头加上 <code>?:</code> —— <code>(?:...)</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">str = <span class="string">'The white dog wears a black hat.'</span></span><br><span class="line">pttn = <span class="string">r'The (?:white|black) dog wears a (white|black) hat.'</span></span><br><span class="line">re.findall(pttn, str)                   <span class="comment"># 只捕获了一处，也就是说只有一个值将来可以被引用</span></span><br><span class="line"></span><br><span class="line">repl = <span class="string">r'The \1 dog wears a \1 hat.'</span>    <span class="comment"># 不过，可替换的位置却有两个（即便非捕获匹配，也有可替换位置）</span></span><br><span class="line">re.sub(pttn, repl, str)</span><br></pre></td></tr></table></figure>
+<p>非捕获匹配，还有若干个操作符：</p>
+<p> <code>(?=pattern)</code>   </p>
+<blockquote>
+<p>正向肯定预查（look ahead positive assert），在任何匹配规则的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，<a href="https://regexper.com#%60Windows(?=95%7C98%7CNT%7C2000" target="_blank" rel="noopener"><code>Windows(?=95|98|NT|2000)</code></a>%60)<br>能匹配<code>Windows2000</code>中的<code>Windows</code>，但不能匹配<code>Windows3.1</code>中的<code>Windows</code>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。 </p>
+</blockquote>
+<p><code>(?!pattern)</code></p>
+<blockquote>
+<p>正向否定预查（negative assert），在任何不匹配规则的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如<a href="https://regexper.com#Windows(?=95%7C98%7CNT%7C2000" target="_blank" rel="noopener"><code>Windows(?=95|98|NT|2000)</code></a>)<br>能匹配<code>Windows3.1</code>中的<code>Windows</code>，但不能匹配<code>Windows2000</code>中的<code>Windows</code>。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</p>
+</blockquote>
+<p><code>(?&lt;=pattern)</code></p>
+<blockquote>
+<p>反向（look behind）肯定预查，与正向肯定预查类似，只是方向相反。例如，<a href="https://regexper.com#(?%3C=95%7C98%7CNT%7C2000" target="_blank" rel="noopener"><code>(?&lt;=95|98|NT|2000)Windows</code></a>Windows)<br>能匹配<code>2000Windows</code>中的<code>Windows</code>，但不能匹配<code>3.1Windows</code>中的<code>Windows</code>。</p>
+</blockquote>
+<p> <code>(?&lt;!pattern)</code></p>
+<blockquote>
+<p>反向否定预查，与正向否定预查类似，只是方向相反。例如<code>(?&lt;!95|98|NT|2000)Windows</code><br>能匹配<code>3.1Windows</code>中的<code>Windows</code>，但不能匹配<code>2000Windows</code>中的<code>Windows</code>。 </p>
+</blockquote>
+<h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><p><a href="https://docs.python.org/3/library/re.html" target="_blank" rel="noopener">Python 正则</a><br><a href="https://regex101.com/" target="_blank" rel="noopener">在线正则</a><br><a href="https://regexper.com/" target="_blank" rel="noopener">正则可视化</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/算法练习-栈、队列和递归/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Reiser Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/13/算法练习-栈、队列和递归/" class="post-title-link" itemprop="url">算法练习-栈、队列和递归</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-13 16:36:35 / Modified: 16:51:00" itemprop="dateCreated datePublished" datetime="2019-03-13T16:36:35+08:00">2019-03-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="关于栈、队列和递归的几个必知必会的代码实现"><a href="#关于栈、队列和递归的几个必知必会的代码实现" class="headerlink" title="关于栈、队列和递归的几个必知必会的代码实现"></a>关于栈、队列和递归的几个必知必会的代码实现</h3><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><ul>
+<li>用数组实现一个顺序栈</li>
+<li>用链表实现一个链式栈</li>
+<li>编程模拟实现一个浏览器的前进、后退功能</li>
+</ul>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><ul>
+<li>用数组实现一个顺序队列</li>
+<li>用链表实现一个链式队列</li>
+<li>实现一个循环队列</li>
+</ul>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><ul>
+<li>编程实现斐波那契数列求值 f(n)=f(n-1)+f(n-2)</li>
+<li>编程实现求阶乘 n!</li>
+<li>编程实现一组数据集合的全排列</li>
+</ul>
+<h3 id="对应的-LeetCode-练习题"><a href="#对应的-LeetCode-练习题" class="headerlink" title="对应的 LeetCode 练习题"></a>对应的 LeetCode 练习题</h3><h3 id="栈-1"><a href="#栈-1" class="headerlink" title="栈"></a>栈</h3><ul>
+<li><p>Valid Parentheses（有效的括号）</p>
+<p>  题目：<a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-parentheses/</a></p>
+</li>
+<li><p>Longest Valid Parentheses（最长有效的括号）</p>
+<p>  题目：<a href="https://leetcode.com/problems/longest-valid-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-valid-parentheses/</a></p>
+</li>
+<li><p>Evaluate Reverse Polish Notatio（逆波兰表达式求值）</p>
+<p>  题目：<a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">https://leetcode.com/problems/evaluate-reverse-polish-notation/</a></p>
+</li>
+</ul>
+<h3 id="队列-1"><a href="#队列-1" class="headerlink" title="队列"></a>队列</h3><ul>
+<li><p>Design Circular Deque（设计一个双端队列）</p>
+<p>  题目：<a href="https://leetcode.com/problems/design-circular-deque/" target="_blank" rel="noopener">https://leetcode.com/problems/design-circular-deque/</a></p>
+</li>
+<li><p>Sliding Window Maximum（滑动窗口最大值）</p>
+<p>  题目：<a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">https://leetcode.com/problems/sliding-window-maximum/</a></p>
+</li>
+</ul>
+<h3 id="递归-1"><a href="#递归-1" class="headerlink" title="递归"></a>递归</h3><ul>
+<li><p>Climbing Stairs（爬楼梯）</p>
+<p>  题目：<a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="noopener">https://leetcode.com/problems/climbing-stairs/</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/算法练习-数组和链表/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Reiser Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/12/算法练习-数组和链表/" class="post-title-link" itemprop="url">算法练习-数组和链表</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-12 16:31:17" itemprop="dateCreated datePublished" datetime="2019-03-12T16:31:17+08:00">2019-03-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-13 16:51:07" itemprop="dateModified" datetime="2019-03-13T16:51:07+08:00">2019-03-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="关于数组和链表的几个必知必会的代码实现"><a href="#关于数组和链表的几个必知必会的代码实现" class="headerlink" title="关于数组和链表的几个必知必会的代码实现"></a>关于数组和链表的几个必知必会的代码实现</h3><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<li>实现一个支持动态扩容的数组</li>
+<li>实现一个大小固定的有序数组，支持动态增删改操作</li>
+<li>实现两个有序数组合并为一个有序数组</li>
+</ul>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><ul>
+<li>实现单链表、循环链表、双向链表，支持增删操作</li>
+<li>实现单链表反转</li>
+<li>实现两个有序的链表合并为一个有序链表</li>
+<li>实现求链表的中间结点</li>
+</ul>
+<h3 id="对应的-LeetCode-练习题"><a href="#对应的-LeetCode-练习题" class="headerlink" title="对应的 LeetCode 练习题"></a>对应的 LeetCode 练习题</h3><h3 id="数组-1"><a href="#数组-1" class="headerlink" title="数组"></a>数组</h3><ul>
+<li><p>Three Sum（求三数之和）</p>
+<p>  题目：<a href="https://leetcode.com/problems/3sum/" target="_blank" rel="noopener">https://leetcode.com/problems/3sum/</a></p>
+  <!-- 解法：[https://github.com/leonzone/leetcode/tree/master/note/15](https://github.com/leonzone/leetcode/tree/master/note/15)-->
+</li>
+<li><p>Majority Element（求众数）</p>
+<p>  题目：<a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="noopener">https://leetcode.com/problems/majority-element/</a></p>
+ <!--  解法：[https://github.com/leonzone/leetcode/tree/master/note/169](https://github.com/leonzone/leetcode/tree/master/note/169)-->
+</li>
+<li><p>Missing Positive（求缺失的第一个正数）</p>
+<p>  题目：<a href="https://leetcode.com/problems/first-missing-positive/" target="_blank" rel="noopener">https://leetcode.com/problems/first-missing-positive/</a></p>
+<p>   解法：<a href="https://github.com/leonzone/leetcode/tree/master/note/041" target="_blank" rel="noopener">https://github.com/leonzone/leetcode/tree/master/note/041</a></p>
+</li>
+</ul>
+<h3 id="链表-1"><a href="#链表-1" class="headerlink" title="链表"></a>链表</h3><ul>
+<li><p>Linked List Cycle I（环形链表）</p>
+<p>  题目：<a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener">https://leetcode.com/problems/linked-list-cycle/</a></p>
+<p>  解法：<a href="https://github.com/leonzone/leetcode/tree/master/note/141" target="_blank" rel="noopener">https://github.com/leonzone/leetcode/tree/master/note/141</a></p>
+</li>
+<li><p>Merge k Sorted Lists（合并 k 个排序链表）</p>
+<p>  题目：<a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">https://leetcode.com/problems/merge-k-sorted-lists/</a></p>
+<p>  解法：<a href="https://github.com/leonzone/leetcode/tree/master/note/023" target="_blank" rel="noopener">https://github.com/leonzone/leetcode/tree/master/note/023</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/最短路径规划-回溯、Dijkstra、A-三种算法实现/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1439,7 +2141,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
