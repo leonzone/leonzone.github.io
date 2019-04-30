@@ -96,21 +96,24 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="算法思想之动态规划">
-<meta property="og:url" content="http://yoursite.com/2019/02/28/算法思想之动态规划/index.html">
+  <meta name="description" content="关于图几个必知必会的代码实现图 实现有向图、无向图、有权图、无权图的邻接矩阵和邻接表表示方法 实现图的深度优先搜索、广度优先搜索 实现 Dijkstra 算法、A* 算法 实现拓扑排序的Kahn 算法、DFS 算法  对应的 LeetCode 练习题 Number of Islands（岛屿的个数）  题目：https://leetcode.com/problems/number-of-islan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法练习-图">
+<meta property="og:url" content="http://yoursite.com/2019/04/30/算法练习-图/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于图几个必知必会的代码实现图 实现有向图、无向图、有权图、无权图的邻接矩阵和邻接表表示方法 实现图的深度优先搜索、广度优先搜索 实现 Dijkstra 算法、A* 算法 实现拓扑排序的Kahn 算法、DFS 算法  对应的 LeetCode 练习题 Number of Islands（岛屿的个数）  题目：https://leetcode.com/problems/number-of-islan">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-28T08:15:07.665Z">
+<meta property="og:updated_time" content="2019-04-30T08:38:43.081Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法思想之动态规划">
+<meta name="twitter:title" content="算法练习-图">
+<meta name="twitter:description" content="关于图几个必知必会的代码实现图 实现有向图、无向图、有权图、无权图的邻接矩阵和邻接表表示方法 实现图的深度优先搜索、广度优先搜索 实现 Dijkstra 算法、A* 算法 实现拓扑排序的Kahn 算法、DFS 算法  对应的 LeetCode 练习题 Number of Islands（岛屿的个数）  题目：https://leetcode.com/problems/number-of-islan">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/28/算法思想之动态规划/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/30/算法练习-图/">
 
 
 
@@ -120,7 +123,7 @@
   };
 </script>
 
-  <title>算法思想之动态规划 | Hexo</title>
+  <title>算法练习-图 | Hexo</title>
   
 
 
@@ -285,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/算法思想之动态规划/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/算法练习-图/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reiser Xu">
@@ -302,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法思想之动态规划
+          <h1 class="post-title" itemprop="name headline">算法练习-图
 
               
             
@@ -328,9 +331,13 @@
                 
               
 
-              <time title="Created: 2019-02-28 16:15:07" itemprop="dateCreated datePublished" datetime="2019-02-28T16:15:07+08:00">2019-02-28</time>
+              <time title="Created: 2019-04-30 16:22:23 / Modified: 16:38:43" itemprop="dateCreated datePublished" datetime="2019-04-30T16:22:23+08:00">2019-04-30</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -363,7 +370,20 @@
       
 
       
-        
+        <h2 id="关于图几个必知必会的代码实现"><a href="#关于图几个必知必会的代码实现" class="headerlink" title="关于图几个必知必会的代码实现"></a>关于图几个必知必会的代码实现</h2><h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul>
+<li><a href="https://github.com/leonzone/Arithmetic/src/structure/graph" target="_blank" rel="noopener">实现有向图、无向图、有权图、无权图的邻接矩阵和邻接表表示方法</a></li>
+<li>实现图的<a href="https://github.com/leonzone/Arithmetic/src/arithmetic/graph/BFS.java" target="_blank" rel="noopener">深度优先搜索</a>、<a href="https://github.com/leonzone/Arithmetic/src/arithmetic/graph/BFS.java" target="_blank" rel="noopener">广度优先搜索</a></li>
+<li>实现<a href="https://github.com/leonzone/Arithmetic/src/arithmetic/graph/dijkstra/Dijkstra.java" target="_blank" rel="noopener"> Dijkstra 算法</a>、A* 算法</li>
+<li>实现拓扑排序的<a href="https://github.com/leonzone/Arithmetic/src/arithmetic/graph/sorting/Topo.java" target="_blank" rel="noopener">Kahn 算法</a>、<a href="https://github.com/leonzone/Arithmetic/src/arithmetic/graph/sorting/Topo.java" target="_blank" rel="noopener">DFS 算法</a></li>
+</ul>
+<h2 id="对应的-LeetCode-练习题"><a href="#对应的-LeetCode-练习题" class="headerlink" title="对应的 LeetCode 练习题"></a>对应的 LeetCode 练习题</h2><ul>
+<li><p>Number of Islands（岛屿的个数）<br>  题目：<a href="https://leetcode.com/problems/number-of-islands/description/" target="_blank" rel="noopener">https://leetcode.com/problems/number-of-islands/description/</a></p>
+  <!--解法：[https://github.com/leonzone/leetcode/tree/master/note/069](https://github.com/leonzone/leetcode/tree/master/note/069)-->
+</li>
+<li><p>Valid Sudoku（有效的数独）<br>  题目：<a href="https://leetcode.com/problems/valid-sudoku/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-sudoku/</a></p>
+  <!--解法：[https://github.com/leonzone/leetcode/tree/master/note/069](https://github.com/leonzone/leetcode/tree/master/note/069)--></li>
+</ul>
+
       
     </div>
 
@@ -393,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/算法思想之回溯算法/" rel="next" title="算法思想之回溯算法">
-                <i class="fa fa-chevron-left"></i> 算法思想之回溯算法
+              <a href="/2019/04/02/算法练习-二叉树和堆/" rel="next" title="算法练习-二叉树和堆">
+                <i class="fa fa-chevron-left"></i> 算法练习-二叉树和堆
               </a>
             
           </div>
@@ -403,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/12/最短路径规划-回溯、Dijkstra、A-三种算法实现/" rel="prev" title="最短路径规划-回溯、Dijkstra、A* 三种算法实现">
-                最短路径规划-回溯、Dijkstra、A* 三种算法实现 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/30/算法练习-贪心、分治、回溯和动态规划/" rel="prev" title="算法练习-贪心、分治、回溯和动态规划">
+                算法练习-贪心、分治、回溯和动态规划 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -510,6 +539,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于图几个必知必会的代码实现"><span class="nav-number">1.</span> <span class="nav-text">关于图几个必知必会的代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图"><span class="nav-number">1.1.</span> <span class="nav-text">图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对应的-LeetCode-练习题"><span class="nav-number">2.</span> <span class="nav-text">对应的 LeetCode 练习题</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
